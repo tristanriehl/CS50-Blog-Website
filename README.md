@@ -33,7 +33,7 @@ Built as a CS50 final project, this Flask and SQLite application is a full-stack
 
 ## Installation and Setup
 
-- git clone https://github.com/tristanriehl/
+- git clone https://github.com/tristanriehl/CS50-FInal-Project.git
 - pip install -r requirements.txt
 - flask run
     
