@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+My Articles
+{% endblock %}
+
+{% block main %}
+<div class="mx-auto" style="max-width: 700px;">
+    <h2 class="mb-4">My Articles</h2>
+    {% if articles %}
+        <ul class="list-group">
+            {% for article in articles %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <a href="/article/{{ article.id }}"><strong>{{ article.title }}</strong></a>
+                        <span class="text-muted ms-2">{{ article.created_at }}</span>
+                    </div>
+                    <form method="post" action="/my_articles" style="margin:0;">
+                        <input type="hidden" name="article_id" value="{{ article.id }}">
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this article?');">Delete</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You haven't posted any articles yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

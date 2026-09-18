@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Create Article
+{% endblock %}
+
+{% block main %}
+<h2 class="mb-4">Create a New Article</h2>
+<form action="/create" method="post" class="mx-auto" style="max-width: 600px;">
+    <div class="mb-3 text-start">
+        <label for="title" class="form-label">Title</label>
+        <input autocomplete="off" autofocus required type="text" class="form-control" id="title" name="title" maxlength="100">
+    </div>
+    <div class="mb-3 text-start">
+        <label for="content" class="form-label">Content</label>
+        <textarea required class="form-control" id="content" name="content" rows="8" maxlength="5000"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Post Article</button>
+</form>
+{% endblock %}

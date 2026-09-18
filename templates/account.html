@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Account
+{% endblock %}
+
+{% block main %}
+<div class="mx-auto" style="max-width: 400px;">
+    <h2 class="mb-4">Account Settings</h2>
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <hr>
+    <h4 class="mb-3">Change Password</h4>
+    <form action="/account" method="post">
+        <div class="mb-3 text-start">
+            <label for="current_password" class="form-label">Current Password</label>
+            <input required type="password" class="form-control" id="current_password" name="current_password">
+        </div>
+        <div class="mb-3 text-start">
+            <label for="new_password" class="form-label">New Password</label>
+            <input required type="password" class="form-control" id="new_password" name="new_password">
+        </div>
+        <div class="mb-3 text-start">
+            <label for="confirm_password" class="form-label">Confirm New Password</label>
+            <input required type="password" class="form-control" id="confirm_password" name="confirm_password">
+        </div>
+        <button type="submit" class="btn btn-primary">Change Password</button>
+    </form>
+</div>
+{% endblock %}

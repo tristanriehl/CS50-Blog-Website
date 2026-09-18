@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Feed
+{% endblock %}
+
+{% block main %}
+<h2 class="mb-4">Recent Articles</h2>
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        {% if articles %}
+            {% for article in articles %}
+                <div class="card mb-4 text-start">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ article.title }}</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            by {{ article.author }} &middot; {{ article.created_at.strftime('%b %d, %Y %I:%M %p') }}
+                        </h6>
+                        <p class="card-text">{{ article.summary or article.content[:200] ~ ("..." if article.content|length > 200 else "") }}</p>
+                        <a href="/article/{{ article.id }}" class="card-link">Read more</a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No articles have been posted yet.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
